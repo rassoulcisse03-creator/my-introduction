@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohamed Rassoul CISSE</title>
+  <style>
+    /* Colors used on the whole page */
+    :root {
+      --bg: #fbf7ef;
+      --text: #1f2a2e;
+      --muted: #5b6b70;
+      --green: #00853f;   /* Senegal flag green */
+      --yellow: #fdef42;  /* Senegal flag yellow */
+      --red: #e31b23;     /* Senegal flag red */
+      --card: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Top menu */
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      border-bottom: 1px solid #e6e0d4;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .logo { font-weight: bold; color: var(--green); }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin-left: 14px;
+      font-size: 0.95rem;
+    }
+    nav a:hover { color: var(--green); }
+
+    main { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+    /* Big introduction at the top */
+    .hero { padding: 70px 0 50px; }
+    .hero small { color: var(--muted); text-transform: uppercase; letter-spacing: 2px; }
+    .hero h1 { font-size: 2.6rem; margin: 10px 0; }
+    .hero h1 span { color: var(--green); }
+    .hero p { font-size: 1.15rem; color: var(--muted); max-width: 600px; }
+    .flag { display: flex; height: 6px; width: 120px; margin-top: 20px; }
+    .flag div { flex: 1; }
+
+    /* Sections */
+    section { padding: 50px 0; border-top: 1px solid #e6e0d4; }
+    .number { color: var(--red); font-weight: bold; }
+    h2 { font-size: 1.8rem; margin-bottom: 16px; }
+    p { margin-bottom: 12px; }
+
+    /* Cards in a grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 20px;
+      border-left: 5px solid var(--green);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+    .card h3 { margin-bottom: 6px; }
+    .tag {
+      display: inline-block;
+      background: var(--yellow);
+      font-size: 0.8rem;
+      padding: 2px 10px;
+      border-radius: 20px;
+      margin-top: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--muted);
+      border-top: 1px solid #e6e0d4;
+    }
+    footer a { color: var(--green); }
+
+    /* Smartphones */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      nav a { margin-left: 0; margin-right: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">MRC · Mohamed Rassoul CISSE</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#hobbies">Hobbies</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <small>A little introduction</small>
+      <h1>Hello, I'm <span>Rassoul</span>.</h1>
+      <p>Master's student in Information Systems at Kobe Institute of Computing (KIC), Japan.
+         ABE Initiative scholar from Senegal.</p>
+      <div class="flag">
+        <div style="background: var(--green)"></div>
+        <div style="background: var(--yellow)"></div>
+        <div style="background: var(--red)"></div>
+      </div>
+    </div>
+
+    <section id="about">
+      <p class="number">01 · About me</p>
+      <h2>From Senegal to Kobe.</h2>
+      <p>I come from Senegal. My background is in Telecommunications and IT Engineering.</p>
+      <p>Today I am a first-year Master's student (M1) in Information Systems at KIC,
+         thanks to the ABE Initiative scholarship.</p>
+    </section>
+
+    <section id="skills">
+      <p class="number">02 · Skills &amp; interests</p>
+      <h2>What I work on.</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Telecommunications</h3>
+          <p>My engineering background: networks and telecom systems.</p>
+          <span class="tag">Background</span>
+        </div>
+        <div class="card">
+          <h3>Information Systems</h3>
+          <p>What I study now at KIC.</p>
+          <span class="tag">Master's</span>
+        </div>
+        <div class="card">
+          <h3>Web programming</h3>
+          <p>I am learning: HTML, CSS and p5.js.</p>
+          <span class="tag">Learning</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <p class="number">03 · Projects</p>
+      <h2>Ideas I want to build.</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Drowsiness alert device</h3>
+          <p>My research idea: a modular electronic device that warns drivers of older cars
+             when they get sleepy, to reduce road accidents in developing countries.</p>
+          <span class="tag">Research topic</span>
+        </div>
+        <div class="card">
+          <h3>p5.js project</h3>
+          <p>My first creative coding program, made in class.</p>
+          <a href="https://github.com/rassoulcisse03-creator/P5.JS_PROJECT">View code ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="hobbies">
+      <p class="number">04 · Beyond the screen</p>
+      <h2>What I enjoy.</h2>
+      <!-- TODO: replace the text below with YOUR real hobbies -->
+      <div class="grid">
+        <div class="card">
+          <h3>[Hobby 1]</h3>
+          <p>[One sentence about it]</p>
+        </div>
+        <div class="card">
+          <h3>[Hobby 2]</h3>
+          <p>[One sentence about it]</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Mohamed Rassoul CISSE · Kobe, Japan</p>
+    <p><a href="https://github.com/rassoulcisse03-creator">Find me on GitHub ↗</a></p>
+  </footer>
+
+</body>
+</html>
