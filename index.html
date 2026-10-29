@@ -5,22 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mohamed Rassoul CISSE</title>
   <style>
-    /* Colors used on the whole page */
+    /* Colors of the page (Senegal flag + sunset) */
     :root {
-      --bg: #fbf7ef;
-      --text: #1f2a2e;
-      --muted: #5b6b70;
-      --green: #00853f;   /* Senegal flag green */
-      --yellow: #fdef42;  /* Senegal flag yellow */
-      --red: #e31b23;     /* Senegal flag red */
-      --card: #ffffff;
+      --green: #00853f;
+      --yellow: #fdef42;
+      --red: #e31b23;
+      --dark: #0f2419;
+      --sand: #fbf3e4;
+      --text: #1d2b24;
+      --muted: #5c6b63;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: "Segoe UI", Arial, sans-serif;
-      background: var(--bg);
+      background: var(--sand);
       color: var(--text);
       line-height: 1.6;
     }
@@ -29,8 +30,8 @@
     header {
       position: sticky;
       top: 0;
-      background: var(--bg);
-      border-bottom: 1px solid #e6e0d4;
+      z-index: 10;
+      background: rgba(15, 36, 25, 0.92);
       padding: 12px 20px;
       display: flex;
       justify-content: space-between;
@@ -38,95 +39,210 @@
       flex-wrap: wrap;
       gap: 8px;
     }
-    .logo { font-weight: bold; color: var(--green); }
+    .logo { font-weight: bold; color: var(--yellow); letter-spacing: 1px; }
     nav a {
-      color: var(--text);
+      color: #fff;
       text-decoration: none;
-      margin-left: 14px;
+      margin-left: 16px;
       font-size: 0.95rem;
     }
-    nav a:hover { color: var(--green); }
+    nav a:hover { color: var(--yellow); }
 
-    main { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+    /* Big banner with the Senegal picture */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      color: #fff;
+    }
+    .hero svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .hero-text {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      width: 100%;
+    }
+    .hello {
+      display: inline-block;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+    .hero h1 {
+      font-size: 3.4rem;
+      line-height: 1.1;
+      margin: 18px 0 6px;
+      text-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+    }
+    .hero h1 span { color: var(--yellow); }
+    .japanese {
+      font-size: 1.4rem;
+      opacity: 0.9;
+      letter-spacing: 3px;
+    }
+    .hero p.role {
+      margin-top: 18px;
+      font-size: 1.15rem;
+      max-width: 560px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+    .button {
+      display: inline-block;
+      margin-top: 24px;
+      background: var(--yellow);
+      color: var(--dark);
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .button:hover { background: #fff; }
 
-    /* Big introduction at the top */
-    .hero { padding: 70px 0 50px; }
-    .hero small { color: var(--muted); text-transform: uppercase; letter-spacing: 2px; }
-    .hero h1 { font-size: 2.6rem; margin: 10px 0; }
-    .hero h1 span { color: var(--green); }
-    .hero p { font-size: 1.15rem; color: var(--muted); max-width: 600px; }
-    .flag { display: flex; height: 6px; width: 120px; margin-top: 20px; }
-    .flag div { flex: 1; }
+    /* Flag stripe */
+    .stripe { display: flex; height: 8px; }
+    .stripe div { flex: 1; }
 
     /* Sections */
-    section { padding: 50px 0; border-top: 1px solid #e6e0d4; }
-    .number { color: var(--red); font-weight: bold; }
-    h2 { font-size: 1.8rem; margin-bottom: 16px; }
+    main { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+    section { padding: 60px 0; }
+    .number {
+      color: var(--red);
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+    h2 { font-size: 2rem; margin: 6px 0 18px; }
     p { margin-bottom: 12px; }
 
-    /* Cards in a grid */
+    /* Cards */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
     }
     .card {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 20px;
-      border-left: 5px solid var(--green);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+      background: #fff;
+      border-radius: 16px;
+      padding: 22px;
+      border-top: 5px solid var(--green);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+      transition: transform 0.2s;
     }
+    .card:hover { transform: translateY(-4px); }
+    .card:nth-child(2) { border-top-color: var(--yellow); }
+    .card:nth-child(3) { border-top-color: var(--red); }
     .card h3 { margin-bottom: 6px; }
+    .card a { color: var(--green); font-weight: bold; }
     .tag {
       display: inline-block;
-      background: var(--yellow);
+      background: var(--sand);
       font-size: 0.8rem;
       padding: 2px 10px;
       border-radius: 20px;
       margin-top: 8px;
     }
 
+    /* "Hello" in three languages */
+    .languages {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .languages div {
+      background: var(--dark);
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 12px;
+    }
+    .languages b { color: var(--yellow); display: block; font-size: 1.2rem; }
+
     footer {
+      background: var(--dark);
+      color: #cfd8d2;
       text-align: center;
       padding: 30px 20px;
-      color: var(--muted);
-      border-top: 1px solid #e6e0d4;
     }
-    footer a { color: var(--green); }
+    footer a { color: var(--yellow); }
 
     /* Smartphones */
     @media (max-width: 600px) {
-      .hero h1 { font-size: 2rem; }
-      nav a { margin-left: 0; margin-right: 12px; }
+      .hero h1 { font-size: 2.3rem; }
+      .japanese { font-size: 1.1rem; }
+      nav a { margin-left: 0; margin-right: 14px; }
+      h2 { font-size: 1.6rem; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="logo">MRC · Mohamed Rassoul CISSE</div>
+    <div class="logo">MRC</div>
     <nav>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
-      <a href="#hobbies">Hobbies</a>
+      <a href="#senegal">Senegal</a>
     </nav>
   </header>
 
-  <main>
-    <div class="hero">
-      <small>A little introduction</small>
-      <h1>Hello, I'm <span>Rassoul</span>.</h1>
-      <p>Master's student in Information Systems at Kobe Institute of Computing (KIC), Japan.
-         ABE Initiative scholar from Senegal.</p>
-      <div class="flag">
-        <div style="background: var(--green)"></div>
-        <div style="background: var(--yellow)"></div>
-        <div style="background: var(--red)"></div>
-      </div>
-    </div>
+  <!-- Banner: a baobab tree at sunset, drawn with SVG -->
+  <div class="hero">
+    <svg viewBox="0 0 1200 700" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#2b1a4a"/>
+          <stop offset="0.45" stop-color="#e2582b"/>
+          <stop offset="0.8" stop-color="#fdb543"/>
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="700" fill="url(#sky)"/>
+      <circle cx="880" cy="470" r="110" fill="#fdef42" opacity="0.9"/>
+      <!-- ground -->
+      <path d="M0 560 Q300 520 600 550 T1200 540 V700 H0 Z" fill="#1a1208"/>
+      <!-- baobab tree -->
+      <g fill="#1a1208">
+        <path d="M820 560 C830 470 835 420 830 380 L900 380 C895 420 900 470 915 560 Z"/>
+        <path d="M835 390 C800 360 770 330 740 320 L745 310 C780 318 815 345 845 375 Z"/>
+        <path d="M890 385 C920 350 960 330 1000 325 L1002 337 C965 345 930 365 900 395 Z"/>
+        <path d="M850 382 C845 340 840 310 845 280 L858 282 C855 312 860 345 865 380 Z"/>
+        <path d="M875 382 C885 345 895 315 915 290 L925 297 C908 322 898 350 888 385 Z"/>
+        <ellipse cx="735" cy="312" rx="45" ry="16"/>
+        <ellipse cx="1010" cy="322" rx="50" ry="17"/>
+        <ellipse cx="848" cy="275" rx="38" ry="14"/>
+        <ellipse cx="925" cy="288" rx="40" ry="14"/>
+      </g>
+      <!-- dark layer so the text is easy to read -->
+      <rect width="1200" height="700" fill="#000" opacity="0.18"/>
+    </svg>
 
+    <div class="hero-text">
+      <span class="hello">Salaam aleekum · Bonjour · こんにちは</span>
+      <h1>Mohamed Rassoul<br><span>CISSE</span></h1>
+      <div class="japanese">モハメド・ラスール・シセ</div>
+      <p class="role">Master's student in Information Systems at Kobe Institute of Computing (KIC), Japan.
+         ABE Initiative scholar from Senegal 🇸🇳</p>
+      <a class="button" href="#projects">See my projects ↓</a>
+    </div>
+  </div>
+
+  <div class="stripe">
+    <div style="background: var(--green)"></div>
+    <div style="background: var(--yellow)"></div>
+    <div style="background: var(--red)"></div>
+  </div>
+
+  <main>
     <section id="about">
       <p class="number">01 · About me</p>
       <h2>From Senegal to Kobe.</h2>
@@ -140,18 +256,18 @@
       <h2>What I work on.</h2>
       <div class="grid">
         <div class="card">
-          <h3>Telecommunications</h3>
+          <h3>📡 Telecommunications</h3>
           <p>My engineering background: networks and telecom systems.</p>
           <span class="tag">Background</span>
         </div>
         <div class="card">
-          <h3>Information Systems</h3>
+          <h3>🗂️ Information Systems</h3>
           <p>What I study now at KIC.</p>
           <span class="tag">Master's</span>
         </div>
         <div class="card">
-          <h3>Web programming</h3>
-          <p>I am learning: HTML, CSS and p5.js.</p>
+          <h3>💻 Web programming</h3>
+          <p>I am learning HTML, CSS and p5.js.</p>
           <span class="tag">Learning</span>
         </div>
       </div>
@@ -162,34 +278,31 @@
       <h2>Ideas I want to build.</h2>
       <div class="grid">
         <div class="card">
-          <h3>Drowsiness alert device</h3>
+          <h3>🚗 Drowsiness alert device</h3>
           <p>My research idea: a modular electronic device that warns drivers of older cars
              when they get sleepy, to reduce road accidents in developing countries.</p>
           <span class="tag">Research topic</span>
         </div>
         <div class="card">
-          <h3>p5.js project</h3>
+          <h3>🎨 p5.js project</h3>
           <p>My first creative coding program, made in class.</p>
           <a href="https://github.com/rassoulcisse03-creator/P5.JS_PROJECT">View code ↗</a>
         </div>
       </div>
     </section>
 
-    <section id="hobbies">
-      <p class="number">04 · Beyond the screen</p>
-      <h2>What I enjoy.</h2>
-      <!-- TODO: replace the text below with YOUR real hobbies -->
-      <div class="grid">
-        <div class="card">
-          <h3>[Hobby 1]</h3>
-          <p>[One sentence about it]</p>
-        </div>
-        <div class="card">
-          <h3>[Hobby 2]</h3>
-          <p>[One sentence about it]</p>
-        </div>
+    <section id="senegal">
+      <p class="number">04 · Where I'm from</p>
+      <h2>Senegal, the land of Teranga.</h2>
+      <p><b>Teranga</b> is a Wolof word. It means hospitality: welcoming people and sharing with them.</p>
+      <div class="languages">
+        <div><b>Salaam aleekum</b>Hello (Wolof)</div>
+        <div><b>Bonjour</b>Hello (French)</div>
+        <div><b>こんにちは</b>Hello (Japanese)</div>
       </div>
     </section>
+
+    <!-- TODO: add a "Hobbies" section here with my real hobbies -->
   </main>
 
   <footer>
