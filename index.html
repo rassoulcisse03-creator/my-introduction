@@ -56,12 +56,10 @@
       align-items: center;
       overflow: hidden;
       color: #fff;
-    }
-    .hero svg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
+      /* dark layer on the left so the text is easy to read, then the photo */
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.15)),
+        url("images/senegal-beach.jpg") center / cover no-repeat;
     }
     .hero-text {
       position: relative;
@@ -197,35 +195,8 @@
     </nav>
   </header>
 
-  <!-- Banner: a baobab tree at sunset, drawn with SVG -->
+  <!-- Banner: photo of a Senegal beach (file in the images folder) -->
   <div class="hero">
-    <svg viewBox="0 0 1200 700" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
-      <defs>
-        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#2b1a4a"/>
-          <stop offset="0.45" stop-color="#e2582b"/>
-          <stop offset="0.8" stop-color="#fdb543"/>
-        </linearGradient>
-      </defs>
-      <rect width="1200" height="700" fill="url(#sky)"/>
-      <circle cx="880" cy="470" r="110" fill="#fdef42" opacity="0.9"/>
-      <!-- ground -->
-      <path d="M0 560 Q300 520 600 550 T1200 540 V700 H0 Z" fill="#1a1208"/>
-      <!-- baobab tree -->
-      <g fill="#1a1208">
-        <path d="M820 560 C830 470 835 420 830 380 L900 380 C895 420 900 470 915 560 Z"/>
-        <path d="M835 390 C800 360 770 330 740 320 L745 310 C780 318 815 345 845 375 Z"/>
-        <path d="M890 385 C920 350 960 330 1000 325 L1002 337 C965 345 930 365 900 395 Z"/>
-        <path d="M850 382 C845 340 840 310 845 280 L858 282 C855 312 860 345 865 380 Z"/>
-        <path d="M875 382 C885 345 895 315 915 290 L925 297 C908 322 898 350 888 385 Z"/>
-        <ellipse cx="735" cy="312" rx="45" ry="16"/>
-        <ellipse cx="1010" cy="322" rx="50" ry="17"/>
-        <ellipse cx="848" cy="275" rx="38" ry="14"/>
-        <ellipse cx="925" cy="288" rx="40" ry="14"/>
-      </g>
-      <!-- dark layer so the text is easy to read -->
-      <rect width="1200" height="700" fill="#000" opacity="0.18"/>
-    </svg>
 
     <div class="hero-text">
       <span class="hello">Salaam aleekum · Bonjour · こんにちは</span>
