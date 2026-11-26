@@ -110,6 +110,14 @@
       text-decoration: none;
     }
     .button:hover { background: #fff; }
+    /* Second button: outlined, links to GitHub */
+    .button.outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+      margin-left: 10px;
+    }
+    .button.outline:hover { background: #fff; color: var(--dark); }
 
     /* Flag stripe */
     .stripe { display: flex; height: 8px; }
@@ -185,6 +193,7 @@
       .japanese { font-size: 1.1rem; }
       nav a { margin-left: 0; margin-right: 14px; }
       h2 { font-size: 1.6rem; }
+      .button.outline { margin-left: 0; margin-top: 12px; } /* button goes under the first one */
     }
   </style>
 </head>
@@ -198,6 +207,7 @@
       <a href="#projects">Projects</a>
       <a href="#senegal">Senegal</a>
       <a href="#hobbies">Hobbies</a>
+      <a href="https://github.com/rassoulcisse03-creator" target="_blank" rel="noopener">GitHub ↗</a>
     </nav>
   </header>
 
@@ -211,6 +221,7 @@
       <p class="role">Master's student in Information Systems at Kobe Institute of Computing (KIC), Japan.
          ABE Initiative scholar from Senegal 🇸🇳</p>
       <a class="button" href="#projects">See my projects ↓</a>
+      <a class="button outline" href="https://github.com/rassoulcisse03-creator" target="_blank" rel="noopener">My GitHub ↗</a>
     </div>
   </div>
 
