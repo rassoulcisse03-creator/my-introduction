@@ -47,6 +47,12 @@
       font-size: 0.95rem;
     }
     nav a:hover { color: var(--yellow); }
+    /* Link of the section you are reading now (set by the script below) */
+    nav a.active {
+      color: var(--yellow);
+      border-bottom: 2px solid var(--yellow);
+      padding-bottom: 2px;
+    }
 
     /* Big banner with the Senegal picture */
     .hero {
@@ -111,7 +117,7 @@
 
     /* Sections */
     main { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-    section { padding: 60px 0; }
+    section { padding: 60px 0; scroll-margin-top: 60px; } /* keep titles below the sticky menu */
     .number {
       color: var(--red);
       font-weight: bold;
@@ -294,6 +300,24 @@
     <p>© 2026 Mohamed Rassoul CISSE · Kobe, Japan</p>
     <p><a href="https://github.com/rassoulcisse03-creator">Find me on GitHub ↗</a></p>
   </footer>
+
+  <script>
+    // Highlight the menu link of the section that is on screen
+    const links = document.querySelectorAll("nav a");
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          links.forEach(function (link) {
+            link.classList.toggle("active", link.getAttribute("href") === "#" + entry.target.id);
+          });
+        }
+      });
+    }, { rootMargin: "-40% 0px -55% 0px" }); // a thin band in the middle of the screen
+
+    document.querySelectorAll("main section").forEach(function (section) {
+      observer.observe(section);
+    });
+  </script>
 
 </body>
 </html>
